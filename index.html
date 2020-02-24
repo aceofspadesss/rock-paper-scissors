@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock, Paper, Scissors</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <main>
+      <script type="text/javascript">
+
+        function computerPlay(){
+          let choiceArray = ["Rock", "Paper", "Scissors"];
+          let AI = choiceArray[Math.floor(Math.random() * choiceArray.length)];
+          return AI;
+        }
+
+        function playerPlay(){
+          let choice = prompt("Make your move:");
+          return choice;
+        }
+
+        const playerSelection = playerPlay();
+        const computerSelection = computerPlay();
+
+        console.log("You chose: " + playerSelection);
+        console.log("Computer chose: " + computerSelection);
+
+        function playRound(playerSelection, computerSelection){
+          if (playerSelection == "Rock" && computerSelection == "Scissors"){
+            console.log("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase() + " beats " + computerSelection);
+          } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+            console.log("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase() + " beats " + computerSelection);
+          } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+            console.log("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase() + " beats " + computerSelection);
+          } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+            console.log("You lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase());
+          } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+            console.log("You lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase());
+          } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+            console.log("You lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase());
+          } else if (playerSelection == "Rock" && computerSelection == "Rock") {
+            console.log("DRAW!");
+          } else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
+            console.log("DRAW!");
+          } else if (playerSelection == "Paper" && computerSelection == "Paper") {
+            console.log("DRAW!");
+          }
+        }
+        playRound(playerSelection, computerSelection);
+
+      </script>
+    </main>
+  </body>
+</html>
