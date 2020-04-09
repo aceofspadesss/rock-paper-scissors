@@ -1,1 +1,1 @@
-Rock, Paper, Scissors for browser console.
+Rock, Paper, Scissors for browser.
