@@ -1,90 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
   <head>
+    <meta charset="utf-8">
     <title>Rock, Paper, Scissors</title>
-    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   </head>
   <body>
     <main>
-      <script type="text/javascript">
-
-        let playerScore = 0;
-        let computerScore = 0;
-        let turns = 0;
-
-        function computerPlay(){
-          let choiceArray = ["Rock", "Paper", "Scissors"];
-          let AI = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-          return AI;
-        }
-
-        function playerPlay(){
-          let choice = prompt("Make your move:");
-          return choice;
-        }
-
-
-        function playRound(playerSelection, computerSelection){
-          if (playerSelection == "Rock" && computerSelection == "Scissors"){
-            console.log("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase() + " beats " + computerSelection);
-            playerScore = ++playerScore;
-          } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-            console.log("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase() + " beats " + computerSelection);
-            playerScore = ++playerScore;
-            return playerScore;
-          } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-            console.log("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase() + " beats " + computerSelection);
-            playerScore = ++playerScore;
-            return playerScore;
-          } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-            console.log("You lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase());
-            computerScore = ++computerScore;
-            return computerScore;
-          } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-            console.log("You lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase());
-            computerScore = ++computerScore;
-            return computerScore;
-          } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-            console.log("You lose! " + computerSelection + " beats " + playerSelection.charAt(0).toUpperCase() + playerSelection.substring(1).toLowerCase());
-            computerScore = ++computerScore;
-            return computerScore;
-          } else if (playerSelection == "Rock" && computerSelection == "Rock") {
-            console.log("DRAW!");
-          } else if (playerSelection == "Scissors" && computerSelection == "Scissors") {
-            console.log("DRAW!");
-          } else if (playerSelection == "Paper" && computerSelection == "Paper") {
-            console.log("DRAW!");
-          }
-        }
-
-        function game(){
-        do {
-          turns = ++turns;
-          const playerSelection = playerPlay();
-          const computerSelection = computerPlay();
-
-          console.log("You chose: " + playerSelection);
-          console.log("Computer chose: " + computerSelection);
-
-          playRound(playerSelection, computerSelection);
-          console.log("Player: " + playerScore + " || " + "Computer: " + computerScore);
-        } while (turns <= 4);
-
-       }
-
-       game();
-
-       const victory = "CONGRATULATIONS! YOU WON!";
-       const loss = "GAME OVER";
-       const draw = "IT'S A DRAW!"
-       if (playerScore > computerScore) {
-         console.log(victory);
-       } else if (playerScore < computerScore) {
-         console.log(loss);
-       } else if (playerScore == computerScore) {
-         console.log(draw);
-       }
-      </script>
+      <div class="top">
+        <img src="./images/icon.png" class="icon"/>
+        <h1>ROCK, PAPER, SCISSORS!</h1>
+      </div>
+      <div class="allButtons">
+      <button id="rock"><img class="rock" src="./images/rock.png"/></button>
+      <button id="paper"><img class="paper" src="./images/paper.png"/></button>
+      <button id="scissors"><img class="scissors" src="./images/scissors.png"/></button>
+    </div>
+      <div class="scoreParent">
+      <div class="score">
+        <div class="choiceMessage">Your Choice:</div>
+        <div class="computerChoice">Computer Choice:</div>
+        <div id="playerScore">Your Score: 0</div>
+        <div id="computerScore">Computer Score: 0</div>
+        <div id="roundCounter">Round: 0</div>
+        <div class="gameWindow"></div>
+        <div id="resultScreen"></div>
+      </div>
+      <button id="restart">TRY AGAIN?</button>
+    </div>
     </main>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
